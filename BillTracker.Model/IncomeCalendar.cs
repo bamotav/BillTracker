@@ -19,6 +19,7 @@ namespace BillTracker.Model
         [ForeignKey("AccountBankId")]
         public virtual AccountBank AccountBank { get; set; }
 
+        [Column(TypeName = "nvarchar(50)")]
         [Required]
         public IncomeType IncomeType { get; set; }
 
