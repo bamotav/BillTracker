@@ -15,7 +15,7 @@ namespace BillTracker.Model
         [Required]
         public string NumberAccount { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "TEXT")]
         [Required]
         public Bank Bank { get; set; }
     }
