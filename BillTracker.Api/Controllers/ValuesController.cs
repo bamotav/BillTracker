@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BillTracker.Application.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BillTracker.Api.Controllers
@@ -10,6 +11,10 @@ namespace BillTracker.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public ValuesController(IAccountBankAppService accountBankAppService)
+        {
+
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()

@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Domain", "BillT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.EntityFramework", "BillTracker.EntityFramework\BillTracker.EntityFramework.csproj", "{42DEC60E-C09D-4EA0-855B-BA307BE79C17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillTracker.Application", "BillTracker.Application\BillTracker.Application.csproj", "{A3614929-F007-44B9-9806-C030D74FE02A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillTracker.Application.Shared", "BillTracker.Application.Shared\BillTracker.Application.Shared.csproj", "{FC90AD49-26EC-45EC-8202-AE348CF70F5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{42DEC60E-C09D-4EA0-855B-BA307BE79C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42DEC60E-C09D-4EA0-855B-BA307BE79C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42DEC60E-C09D-4EA0-855B-BA307BE79C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3614929-F007-44B9-9806-C030D74FE02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3614929-F007-44B9-9806-C030D74FE02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3614929-F007-44B9-9806-C030D74FE02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3614929-F007-44B9-9806-C030D74FE02A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC90AD49-26EC-45EC-8202-AE348CF70F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC90AD49-26EC-45EC-8202-AE348CF70F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC90AD49-26EC-45EC-8202-AE348CF70F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC90AD49-26EC-45EC-8202-AE348CF70F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

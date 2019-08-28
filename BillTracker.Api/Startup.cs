@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BillTracker.Application;
 using BillTracker.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,13 @@ namespace BillTracker.Api
 
             services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.Scan(scan =>
+                          scan.FromAssemblyOf<AccountBankAppService>()
+                         .AddClasses(classes => classes.Where(type => type.Name.EndsWith("AppService")))
+                         .AsImplementedInterfaces()
+                         .WithTransientLifetime());
+            //AppService
 
         }
 
