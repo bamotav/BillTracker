@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BillTracker.EntityFramework\BillTracker.EntityFramework.csproj" />
-    <ProjectReference Include="..\BillTracker.Model\BillTracker.Model.csproj" />
+    <ProjectReference Include="..\BillTracker.Model\BillTracker.Domain.csproj" />
   </ItemGroup>
 
 </Project>

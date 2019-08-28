@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Api", "BillTracker.Api\BillTracker.Api.csproj", "{82AD6CE1-B5BA-4742-85CE-9ED9B8827917}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Model", "BillTracker.Model\BillTracker.Model.csproj", "{1AD9D7B4-AD56-41D8-BB0F-C24D9F10B4D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Domain", "BillTracker.Model\BillTracker.Domain.csproj", "{1AD9D7B4-AD56-41D8-BB0F-C24D9F10B4D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillTracker.EntityFramework", "BillTracker.EntityFramework\BillTracker.EntityFramework.csproj", "{42DEC60E-C09D-4EA0-855B-BA307BE79C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.EntityFramework", "BillTracker.EntityFramework\BillTracker.EntityFramework.csproj", "{42DEC60E-C09D-4EA0-855B-BA307BE79C17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
