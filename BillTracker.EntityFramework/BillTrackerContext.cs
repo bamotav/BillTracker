@@ -1,4 +1,4 @@
-﻿using BillTracker.Model;
+﻿using BillTracker.Domain;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

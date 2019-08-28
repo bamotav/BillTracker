@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BillTracker.Model.shared
+namespace BillTracker.Domain.shared
 {
     public interface IEntity<out TId> where TId : IEquatable<TId>
     {

@@ -1,10 +1,10 @@
-﻿using BillTracker.Model.shared;
+﻿using BillTracker.Domain.shared;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BillTracker.Model
+namespace BillTracker.Domain
 {
     [Table("Incomes")]
     public class Income : Entity<int>
