@@ -56,7 +56,15 @@ namespace BillTracker.Api
                           .AsImplementedInterfaces()
                           .WithScopedLifetime());
             //AppService;
+            /* 
+                var assemblies = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
+                    .Where(a => a.FullName.StartsWith("BS"));
 
+                assemblies.ToList().ForEach(a => {
+                    var allServices = System.Reflection.Assembly.Load(a.Name).GetTypes().Where(t => t.Namespace != null && t.Name.EndsWith("Service"));
+                    var hh = "";
+                }); 
+             */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

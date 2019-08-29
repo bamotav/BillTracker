@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BillTracker.Application
 {
-    [InjectionSingleton]
-    public class AccountBankAppService : IAccountBankAppService
+    [InjectionTransientLifetime]
+    public class AccountBankService : IAccountBankAppService
     {
         public async Task<int> Get()
         {
