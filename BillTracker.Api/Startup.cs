@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BillTracker.Application;
+using BillTracker.Application.Shared;
+using BillTracker.Application.Shared.Attributes;
 using BillTracker.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,12 +35,27 @@ namespace BillTracker.Api
             services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+
             services.Scan(scan =>
-                          scan.FromAssemblyOf<AccountBankAppService>()
-                         .AddClasses(classes => classes.Where(type => type.Name.EndsWith("AppService")))
-                         .AsImplementedInterfaces()
-                         .WithTransientLifetime());
-            //AppService
+                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
+                          .AddClasses(c => c.WithAttribute<InjectionSingletonAttribute>())
+                          .AsImplementedInterfaces()
+                          .WithSingletonLifetime());
+
+
+            services.Scan(scan =>
+                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
+                          .AddClasses(c => c.WithAttribute<InjectionTransientLifetimeAttribute>())
+                          .AsImplementedInterfaces()
+                          .WithTransientLifetime());
+
+
+            services.Scan(scan =>
+                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
+                          .AddClasses(c => c.WithAttribute<InjectionScopedLifetimeAttribute>())
+                          .AsImplementedInterfaces()
+                          .WithScopedLifetime());
+            //AppService;
 
         }
 
