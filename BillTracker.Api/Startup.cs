@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 
 namespace BillTracker.Api
 {
@@ -55,6 +56,12 @@ namespace BillTracker.Api
                           .AddClasses(c => c.WithAttribute<InjectionScopedLifetimeAttribute>())
                           .AsImplementedInterfaces()
                           .WithScopedLifetime());
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+                services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                });
             //AppService;
             /* 
                 var assemblies = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
@@ -80,6 +87,16 @@ namespace BillTracker.Api
                 app.UseHsts();
             }
 
+        // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            
             app.UseHttpsRedirection();
             app.UseMvc();
         }
