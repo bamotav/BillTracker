@@ -8,4 +8,8 @@
     <Folder Include="AccountBank\Dto\" />
   </ItemGroup>
 
+  <ItemGroup>
+      <ProjectReference Include="..\BillTracker.Model\BillTracker.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

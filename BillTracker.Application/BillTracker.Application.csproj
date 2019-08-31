@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BillTracker.Application.Shared\BillTracker.Application.Shared.csproj" />
+      <ProjectReference Include="..\BillTracker.Model\BillTracker.Domain.csproj" />
   </ItemGroup>
 
 </Project>
