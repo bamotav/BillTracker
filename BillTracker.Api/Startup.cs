@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BillTracker.Application;
 using BillTracker.Application.Shared;
 using BillTracker.Application.Shared.Attributes;
@@ -59,10 +60,14 @@ namespace BillTracker.Api
                           .WithScopedLifetime());
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-                services.AddSwaggerGen(c =>
-                {
-                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BillTracker API", Version = "v1" });
-                });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BillTracker API", Version = "v1" });
+            });
+
+            //Configuration AutoMapper
+            services.AddAutoMapper((typeof(BillTrackerApplicationModule)).Assembly);
+
             //AppService;
             /* 
                 var assemblies = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
