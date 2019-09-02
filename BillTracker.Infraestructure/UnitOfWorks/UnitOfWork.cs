@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BillTracker.Infraestructure.UnitOfWork
+namespace BillTracker.Infraestructure
 {
     public class UnitOfWork : IUnitOfWork
     {

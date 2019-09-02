@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
+namespace BillTracker.Infraestructure
 {
     public interface IUnitOfWork
     {

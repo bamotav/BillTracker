@@ -21,6 +21,7 @@
     <ProjectReference Include="..\BillTracker.Application.Shared\BillTracker.Application.Shared.csproj" />
     <ProjectReference Include="..\BillTracker.Application\BillTracker.Application.csproj" />
     <ProjectReference Include="..\BillTracker.EntityFramework\BillTracker.EntityFramework.csproj" />
+    <ProjectReference Include="..\BillTracker.Infraestructure\BillTracker.Infraestructure.csproj" />
     <ProjectReference Include="..\BillTracker.Model\BillTracker.Domain.csproj" />
   </ItemGroup>
 

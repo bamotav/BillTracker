@@ -7,6 +7,8 @@ using BillTracker.Application;
 using BillTracker.Application.Shared;
 using BillTracker.Application.Shared.Attributes;
 using BillTracker.EntityFramework;
+using BillTracker.Infraestructure;
+using BillTracker.Infraestructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,8 @@ namespace BillTracker.Api
             services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.Scan(scan =>
                           scan.FromAssemblyOf<BillTrackerApplicationModule>()

@@ -5,26 +5,33 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BillTracker.Domain;
+using BillTracker.Infraestructure;
+using AutoMapper;
+using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace BillTracker.Application
 {
     [InjectionTransientLifetime]
     public class AccountBankService : IAccountBankAppService
     {
-        public Task<List<AccountBankDto>> GetAll()
+
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public AccountBankService(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            return Task.FromResult(new List<AccountBankDto>(){
-                new AccountBankDto {
-                    NameAccount = "Account Bhd",
-                    NumberAccount = "234123412341324",
-                    Bank = Bank.BhdLeon
-                },
-                new AccountBankDto {
-                    NameAccount = "Account Popular",
-                    NumberAccount = "1234123412341123",
-                    Bank = Bank.Popular
-                }
-            });
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+        public async Task<List<AccountBankDto>> GetAll()
+        {
+            var accountBanks = await _unitOfWork.Repository<AccountBank>().Query().ToListAsync();
+
+            var result = _mapper.Map<List<AccountBankDto>>(accountBanks);
+
+            return result;
         }
     }
 }
