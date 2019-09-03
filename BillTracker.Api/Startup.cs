@@ -8,6 +8,7 @@ using BillTracker.Application.Shared;
 using BillTracker.Application.Shared.Attributes;
 using BillTracker.EntityFramework;
 using BillTracker.Infraestructure;
+using BillTracker.Infraestructure.IoC;
 using BillTracker.Infraestructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,51 +38,9 @@ namespace BillTracker.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt =>
-            opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.Scan(scan =>
-                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
-                          .AddClasses(c => c.WithAttribute<InjectionSingletonAttribute>())
-                          .AsImplementedInterfaces()
-                          .WithSingletonLifetime());
-
-
-            services.Scan(scan =>
-                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
-                          .AddClasses(c => c.WithAttribute<InjectionTransientLifetimeAttribute>())
-                          .AsImplementedInterfaces()
-                          .WithTransientLifetime());
-
-
-            services.Scan(scan =>
-                          scan.FromAssemblyOf<BillTrackerApplicationModule>()
-                          .AddClasses(c => c.WithAttribute<InjectionScopedLifetimeAttribute>())
-                          .AsImplementedInterfaces()
-                          .WithScopedLifetime());
-
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BillTracker API", Version = "v1" });
-            });
-
-            //Configuration AutoMapper
-            services.AddAutoMapper((typeof(BillTrackerApplicationModule)).Assembly);
-
-            //AppService;
-            /* 
-                var assemblies = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
-                    .Where(a => a.FullName.StartsWith("BS"));
-
-                assemblies.ToList().ForEach(a => {
-                    var allServices = System.Reflection.Assembly.Load(a.Name).GetTypes().Where(t => t.Namespace != null && t.Name.EndsWith("Service"));
-                    var hh = "";
-                }); 
-             */
+            services.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,15 +56,7 @@ namespace BillTracker.Api
                 app.UseHsts();
             }
 
-        // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BillTracker API V1");
-            });
+            app.ConfigureServices();
 
             app.UseHttpsRedirection();
             app.UseMvc();

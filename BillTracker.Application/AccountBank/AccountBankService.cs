@@ -10,6 +10,7 @@ using AutoMapper;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using BillTracker.Infraestructure.Interfaces;
 
 namespace BillTracker.Application
 {

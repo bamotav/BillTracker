@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BillTracker.Infraestructure.Repository
+namespace BillTracker.Infraestructure.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {

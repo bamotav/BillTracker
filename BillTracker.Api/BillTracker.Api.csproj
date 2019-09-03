@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -18,11 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BillTracker.Application.Shared\BillTracker.Application.Shared.csproj" />
-    <ProjectReference Include="..\BillTracker.Application\BillTracker.Application.csproj" />
     <ProjectReference Include="..\BillTracker.EntityFramework\BillTracker.EntityFramework.csproj" />
-    <ProjectReference Include="..\BillTracker.Infraestructure\BillTracker.Infraestructure.csproj" />
-    <ProjectReference Include="..\BillTracker.Model\BillTracker.Domain.csproj" />
+    <ProjectReference Include="..\BillTracker.Infraestructure.IoC\BillTracker.Infraestructure.IoC.csproj" />
   </ItemGroup>
 
 </Project>

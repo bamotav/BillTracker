@@ -7,6 +7,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using BillTracker.Infraestructure.Interfaces;
+using BillTracker.Infraestructure.UnitOfWorks;
 
 namespace BillTracker.Infraestructure.Repository
 {
