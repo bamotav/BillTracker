@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-namespace BillTracker.Infraestructure.IoC
+namespace BillTracker.Web.Core.Services
 {
     public static class DependencyContainer
     {

@@ -8,7 +8,7 @@ using BillTracker.Application.Shared;
 using BillTracker.Application.Shared.Attributes;
 using BillTracker.EntityFramework;
 using BillTracker.Infraestructure;
-using BillTracker.Infraestructure.IoC;
+
 using BillTracker.Infraestructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +21,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using BillTracker.Web.Core.Services;
+using Serilog;
+using BillTracker.Infraestructure.Logging;
 
 namespace BillTracker.Api
 {
@@ -28,6 +31,12 @@ namespace BillTracker.Api
     {
         public Startup(IConfiguration configuration)
         {
+            Log.Logger = new LoggerConfiguration()
+             .ReadFrom
+             .Configuration(configuration)
+             .CreateLogger();
+
+
             Configuration = configuration;
         }
 
@@ -44,7 +53,7 @@ namespace BillTracker.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -57,6 +66,9 @@ namespace BillTracker.Api
             }
 
             app.ConfigureServices();
+
+            loggerFactory.AddSerilog();
+            ApplicationLogging.LoggerFactory = loggerFactory;
 
             app.UseHttpsRedirection();
             app.UseMvc();

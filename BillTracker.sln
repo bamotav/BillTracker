@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Application.Sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Infraestructure", "BillTracker.Infraestructure\BillTracker.Infraestructure.csproj", "{C6FB4532-9290-4C5C-AC3B-C6F27C7FF5D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillTracker.Infraestructure.IoC", "BillTracker.Infraestructure.IoC\BillTracker.Infraestructure.IoC.csproj", "{E8302A0E-1620-4AA3-B8BA-7ED59AB8F55F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillTracker.Web.Core", "BillTracker.Infraestructure.IoC\BillTracker.Web.Core.csproj", "{E8302A0E-1620-4AA3-B8BA-7ED59AB8F55F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BillTracker.EntityFramework\BillTracker.EntityFramework.csproj" />
-    <ProjectReference Include="..\BillTracker.Infraestructure.IoC\BillTracker.Infraestructure.IoC.csproj" />
+    <ProjectReference Include="..\BillTracker.Infraestructure.IoC\BillTracker.Web.Core.csproj" />
   </ItemGroup>
 
 </Project>
