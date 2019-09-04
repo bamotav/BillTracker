@@ -19,6 +19,11 @@ namespace BillTracker.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                  //Clear all providers
+                 .ConfigureLogging((logging) =>
+                 {
+                     logging.ClearProviders();
+                 })
                 .UseStartup<Startup>();
     }
 }

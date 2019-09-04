@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BillTracker.Application.Shared;
 using BillTracker.Application.Shared.AccountBank;
+using BillTracker.Infraestructure.Logging;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
 
 namespace BillTracker.Api.Controllers
 {
@@ -14,8 +15,11 @@ namespace BillTracker.Api.Controllers
     public class AccountBankController : ControllerBase
     {
         private readonly IAccountBankAppService _accountBankAppService;
+        protected readonly ILogger _log = ApplicationLogging.CreateLogger<AccountBankController>();
+
         public AccountBankController(IAccountBankAppService accountBankAppService)
         {
+            
             _accountBankAppService = accountBankAppService;
         }
         // GET api/values

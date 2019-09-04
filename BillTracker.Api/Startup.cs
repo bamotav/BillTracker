@@ -55,6 +55,9 @@ namespace BillTracker.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddSerilog();
+            ApplicationLogging.LoggerFactory = loggerFactory;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -67,8 +70,7 @@ namespace BillTracker.Api
 
             app.ConfigureServices();
 
-            loggerFactory.AddSerilog();
-            ApplicationLogging.LoggerFactory = loggerFactory;
+
 
             app.UseHttpsRedirection();
             app.UseMvc();
