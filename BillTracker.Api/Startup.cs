@@ -24,6 +24,7 @@ using Microsoft.OpenApi.Models;
 using BillTracker.Web.Core.Services;
 using Serilog;
 using BillTracker.Infraestructure.Logging;
+using BillTracker.Web.Core.Filters;
 
 namespace BillTracker.Api
 {
@@ -46,6 +47,12 @@ namespace BillTracker.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddMvc(options => {
+
+                options.Filters.Add(typeof(ResultFilter));
+            });
+
 
             services.AddEntityFrameworkNpgsql().AddDbContext<BillTrackerContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
