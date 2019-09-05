@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BillTracker.Infraestructure
 {
-    class BillTrackerException : Exception
+    public class BillTrackerException : Exception
     {
         /// <summary>
         /// Additional information about the exception.

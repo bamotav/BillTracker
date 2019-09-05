@@ -25,6 +25,7 @@ using BillTracker.Web.Core.Services;
 using Serilog;
 using BillTracker.Infraestructure.Logging;
 using BillTracker.Web.Core.Filters;
+using BillTracker.Web.Core.Middlewares;
 
 namespace BillTracker.Api
 {
@@ -78,7 +79,7 @@ namespace BillTracker.Api
             app.ConfigureServices();
 
 
-
+            app.ConfigureErrorHandling();
             app.UseHttpsRedirection();
             app.UseMvc();
             
